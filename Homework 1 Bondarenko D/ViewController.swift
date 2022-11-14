@@ -3,12 +3,12 @@
 //  Homework 1 Bondarenko D
 //
 //  Created by MacBook Pro on 06.11.2022.
-//
+//  Homework 1
 
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,10 +23,9 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - 1. Замена отрицательных чисел
     func workingWithArray() {
         var arrayOne = [-21, -13, -7, -5, -1, 2, 6, 9, 77, 99]
-        
-        // 1. Замена отрицательных чисел
         
         for (index, element) in arrayOne.enumerated() {
             if element < 0 {
@@ -34,38 +33,27 @@ class ViewController: UIViewController {
             }
         }
         print(arrayOne)
+        print("---------------------------------------")
         
-        // 2. Вывод min и max
-//        var min = 0
-//        var max = 0
-//
-//        for number in arrayOne {
-//            if number < min {
-//                min = number
-//            } else if max < number {
-//                max = number
-//            }
-//        }
-        
+        // MARK: - 2. Вывод max и min число
         arrayOne.sort { numLeft, numRight in
-          return numLeft < numRight
+            return numLeft < numRight
         }
-        print(arrayOne.first ?? 0)
-        print(arrayOne.last ?? 0)
+        print("Минимально число в массиве = \(arrayOne.first ?? 0)")
+        print("Максимальное число в массиве = \(arrayOne.last ?? 0)")
+        print("---------------------------------------")
         
-//        print("Минимально число в массиве = \(min)")
-//        print("Максимальное число в массиве = \(max)")
-        
-        // 3. Вывод sum
+        // MARK: - 3. Вывод sum
         var sum = 0
         
         for number in arrayOne {
             sum += number
         }
         print("Сумма чисел в массиве = \(sum)")
+        print("---------------------------------------")
     }
     
-    // 4. !!!!!!!!!!!!!!!!!!!!!!!!!
+    // MARK: - 4. Массив и словарь
     func arrayMonth() {
         var monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         
@@ -75,20 +63,22 @@ class ViewController: UIViewController {
             monthsDictionary[index] = element
         }
         print(monthsDictionary)
+        print("---------------------------------------")
     }
     
-    // 5. Смена значений по ключам
+    // MARK: - 5. Смена значений по ключам
     func replacementValues() {
         var dictionary = ["first": 1, "second": 2, "third": 3, "fourth": 4]
-        var temp1 = dictionary["first"]
-        var temp2 = dictionary["fourth"]
+        var first = dictionary["first"]
+        var fourth = dictionary["fourth"]
         
-        dictionary["first"] = temp2
-        dictionary["fourth"] = temp1
+        dictionary["first"] = fourth
+        dictionary["fourth"] = first
         print(dictionary)
+        print("---------------------------------------")
     }
     
-    // 6.
+    // MARK: - 6. Задать год для словаря
     func createYears() {
         var calendar: [Int: [String]] = [:]
         var arrayMonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -97,27 +87,19 @@ class ViewController: UIViewController {
             calendar[element] = arrayMonth
         }
         print(calendar)
+        print("---------------------------------------")
         
-        // 7.
+        // MARK: - 7. Добавление 13-го месяца
         for (key, value) in calendar {
             var newMonth = value
             newMonth.append("xxxxxx")
             calendar[key] = newMonth
         }
         print(calendar)
-        
-        // 8.
-        
-        
-
-
+        print("---------------------------------------")
     }
-
     
-
-    
-    
-    // 9. Сравнение значений
+    // MARK: - 9. Сравнение значений
     func comparisonValue() {
         let firstValue = 7
         let secondValue = 13
@@ -129,20 +111,21 @@ class ViewController: UIViewController {
         } else if sum % 2 == 0 {
             print(sum)
         }
+        print("---------------------------------------")
     }
     
-    // 10. Достать слово !!!!!!!!!!!!!!!!!!!!!!!!!!
+    // MARK: - 10. Достать слова
     func searchWord() {
         let sentence = "My first home work!"
         let sentence2 = sentence.replacingOccurrences(of: "!", with: "")
         let strArray = sentence2.components(separatedBy:  " ")
         print((strArray.first ?? "") + " " + (strArray.last ?? ""))
-        print(strArray.last)
+        print("---------------------------------------")
     }
     
-    // 11. Switch !!!!!!!!!!!!!!! return message !!!!!!!!!!!!!!!!!!!
+    // MARK: - 11. Switch возвращение сообщения
     func batteryPercentage(charge: Int) -> String? {
-  
+        
         switch charge {
         case 100:
             return "Устройство заряжено"
@@ -152,7 +135,7 @@ class ViewController: UIViewController {
             return "Поставьте устройство на зарядку"
         case 0:
             return "Устройство полностью разряжено"
-
+            
         default:
             return nil
         }
